@@ -1,0 +1,20 @@
+name = slickgrid_field
+description = An implementation of a field to show the Field API
+package = Slickgrid group
+core = 7.x
+
+dependencies[] = slickgrid
+dependencies[] = views
+dependencies[] = ctools
+dependencies[] = libraries
+dependencies[] = entity
+dependencies[] = beautytips
+dependencies[] = jquery_update
+files[] = slickgrid_field.test
+
+; Information added by drupal.org packaging script on 2013-03-11
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "examples"
+datestamp = "1362963586"
+
