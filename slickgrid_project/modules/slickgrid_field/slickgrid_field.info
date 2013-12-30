@@ -1,0 +1,17 @@
+name = Slickgrid Field
+description = Implements Slickgrid Field for Drupal
+package = Slickgrid
+core = 7.x
+
+dependencies[] = slickgrid
+dependencies[] = views
+dependencies[] = ctools
+dependencies[] = libraries
+dependencies[] = entity
+dependencies[] = beautytips
+dependencies[] = jquery_update
+
+files[] = slickgrid_field.test
+
+
+

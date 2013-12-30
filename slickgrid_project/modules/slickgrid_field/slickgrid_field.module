@@ -1,0 +1,123 @@
+<?php
+
+/**
+ * @file
+ * An example field using the Field Types API.
+ */
+/**
+ * Includes.
+ */
+module_load_include('inc', 'slickgrid_field', 'inc/slickgrid_field.theme');
+module_load_include('inc', 'slickgrid_field', 'inc/slickgrid_field.functions');
+module_load_include('inc', 'slickgrid_field', 'inc/slickgrid_field.field');
+module_load_include('inc', 'slickgrid_field', 'inc/slickgrid_field.formatter');
+module_load_include('inc', 'slickgrid_field', 'inc/slickgrid_field.widget');
+
+/* * *************************************************************
+ * Field Type API hooks
+ * ************************************************************* */
+/*
+  Iplements hook_init().
+ */
+
+function slickgrid_field_init() {
+  drupal_add_css(drupal_get_path('module', 'slickgrid_field') . '/css/slickgrid_field.css');
+}
+
+/**
+ * Implements hook_menu().
+ *
+ * Provides a simple user interface that tells the developer where to go.
+ */
+function slickgrid_field_menu() {
+  $items['admin/content/slickgrid'] = array(
+    'title' => 'Slickgrid',
+    'page callback' => '_slickgrid_field_page',
+    'access arguments' => array('administrator access'),
+  );
+  $items['admin/content/slickgrid/fields_profiles'] = array(
+    'title' => 'Field profiles',
+    'page callback' => 'slickgrid_field_page',
+    'access arguments' => array('administrator access'),
+  );
+  return $items;
+}
+
+function slickgrid_get_fields_of_node_type($type) {
+  
+}
+
+/**
+ * A simple page to explain to the developer what to do.
+ */
+function slickgrid_field_page() {
+  return t("The Field Example provides a field composed of an HTML RGB value, like #ff00ff. To use it, add the field to a content type.");
+}
+
+
+
+
+function slickgrid_field_create_slickgrid_format($form, $form_state) {
+
+  $field_name = $form_state['values']['instance']['field_name'];
+  $language = $form['instance']['default_value_widget'][$field_name]['#language'];
+
+  $table = '<table>
+                <tr>
+                    <th>test</th>
+                    <th>test2</th>
+                    </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                 </tr>
+            </table>';
+  //'<pre>'.print_r($form_state['input'][$field_name][$language][0]['slickgrid']['create_slickgrid']['create_slickgrid_format_type'],true)."</pre>";
+  //.'<pre>'.print_r($form,true).'</pre>'
+  //drupal_set_message('<pre>values-'.print_r($form_state['values'],true)."</pre>");
+
+  drupal_set_message('format-' . $form['create_slickgrid']['create_slickgrid_format_type']);
+  drupal_add_js('jQuery(document).ready(function () { alert("Hello!"); });', 'inline');
+
+
+  switch ($form_state['input'][$field_name][$language][0]['slickgrid']['create_slickgrid']['create_slickgrid_format_type']) {
+    case 0:
+      $table_data = slickgrid_field_get_node_fields($form_state['input'][$field_name][$language][0]['slickgrid']['create_slickgrid']['create_slickgrid_node_type']);
+
+      drupal_set_message('<pre>values-' . print_r($table_data, true) . "</pre>");
+
+      foreach ($table_data as $key => $val) {
+        $table_header.='<th>' . $val['name'] . '</th>';
+        $table_rows.='<td>' . $val['type'] . '</td>';
+      }
+      $table = '<div id="test-form-wrapper"><table><tr>' . $table_header . '</tr><tr>' . $table_rows . '</tr></table></div>';
+      $slickgrid_types = array(t('text'), t('long_text'), t('date_field'), t('percent_field'));
+      break;
+    case 1:
+      break;
+    case 2:
+      break;
+  }
+
+
+
+  $commands[] = ajax_command_replace('#test-form-wrapper', $table);
+
+  $myCustomParameters = 'test';
+  $commands[] = ajax_command_invoke('Window', 'alert', array('Hi there!'));
+  //$commands[] = ajax_command_invoke(NULL, "myJavascriptFunction", array($myCustomParameters) );
+
+
+
+
+  return array('#type' => 'ajax', '#commands' => $commands);
+}
+
+/*
+ *
+ */
+
+function slickgrid_field_prepare_columns($fields) {
+
+  return $columns;
+}

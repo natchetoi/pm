@@ -1,0 +1,12 @@
+name = slickgrid_pm_views
+description = slickgrid pm views 
+core = 7.x
+package = Slickgrid
+dependencies[] = views
+dependencies[] = ctools
+dependencies[] = libraries
+dependencies[] = entity
+dependencies[] = beautytips
+dependencies[] = jquery_update
+
+files[]= slickgrid_pm_views_plugin_style_default_view.inc
