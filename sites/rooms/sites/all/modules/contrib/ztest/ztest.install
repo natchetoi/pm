@@ -1,0 +1,13 @@
+<?php
+/**
+ * test install
+ */
+function ztest_update_7000(){
+  $view = views_get_view('enareference');
+  $view->description = $view->description.'Provides bulk operation for "Photos" content type 704';
+  foreach ($view->display as &$display) {
+    $display->display_options['pager']['type'] = 'full';
+    $display->display_options['pager']['options']['items_per_page'] = 99;
+  }
+  views_save_view($view);
+}

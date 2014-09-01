@@ -19,7 +19,6 @@
  *
  */
 function geofield_field_views_data($field) {
-  dsm('geofield');
   $data = field_views_field_default_views_data($field);
   $field_name = $field['field_name'];
 

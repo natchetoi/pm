@@ -1,0 +1,12 @@
+<?php
+function custom_menu_init(){
+drupal_set_message('ini!!');
+//menu_tree_set_path('user-menu', 'shopping-cart');
+//menu_tree_set_path('main-menu', 'node/1');
+menu_tree_set_path('main-menu', 'taxonomy/term/1');
+
+}
+function custom_menu_node_view($node, $view_mode, $langcode) {
+drupal_set_message('node view');
+ menu_tree_set_path('main-menu', 'taxonomy/term/1');
+}

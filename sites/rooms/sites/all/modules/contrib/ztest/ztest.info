@@ -1,0 +1,3 @@
+name = ztest
+description = ztest descr
+core = 7.x

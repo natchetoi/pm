@@ -16,7 +16,6 @@ function geofield_map_views_api() {
  */
 
 function geofield_map_field_formatter_info() {
-  dsm('geofield_map formatter');
   return array(
     'geofield_map_map' => array(
       'label' => t('Geofield Map'),

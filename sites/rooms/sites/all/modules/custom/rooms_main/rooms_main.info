@@ -1,0 +1,4 @@
+name = Rooms Main
+description = Rooms main module
+package = Rooms Custom
+core = 7.x

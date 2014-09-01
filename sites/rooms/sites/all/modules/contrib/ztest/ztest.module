@@ -1,0 +1,61 @@
+<?php
+
+function ztest_node_update($node) {
+	dsm('ztest');
+	dsm($node);
+}
+//dsm(module_implements('node_update'));
+
+function ztest_node_save($node){
+dsm($node);
+}
+function ztest_node_presave($node){
+dsm($node);
+}
+function ztest_user_load($users){
+  $test = 0;
+foreach($users as $user){
+
+}
+
+}
+function ztest_menu(){
+
+  $items['admin/manage-cision'] = array(
+    'title' => 'Manage Cision',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('nbcumv_cision_manage_settings'),
+    'access arguments' => array('access dashboard'),
+    'menu_name' => 'menu-author-menu',
+    'file' => 'nbcumv_cision.pages.inc',
+    'plid' => 456,
+    'weight' => 3001,
+  );
+  return $items;
+}
+
+function ztest_preprocess_html(&$variables) {
+  dsm('ztest proprocess html');
+  $text = 'Over 5 years of experience with PHP, more than 4 years of experience with CMS Drupal, 3 years experience in the development of modules.';
+  dsm($text);
+  $text_legth = strlen($text);
+  dsm($text_legth);
+  $text_array = array();
+  $text_array = explode(' ',$text);
+  dsm($text_array);
+  foreach($text_array as $text){
+  }
+  $variables['classes_array'][] = 'new-class';
+  $variables['attributes_array']['style'] = 'background:#000';
+  dsm($variables);
+  
+}
+/*
+function ztest_page_alter(&$page) {
+    dsm('ztest page alter');
+    dsm($page);
+}*/
+
+function ztest_links__system_secondary_menu($variables){
+	dsm('menu');
+}
