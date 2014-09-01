@@ -1,0 +1,80 @@
+<?php
+/**
+ * @file
+ * Install, update, and uninstall functions for the slickgrid_field module.
+ */
+
+/**
+ * Implements hook_field_schema().
+ *
+ * Defines the database schema of the field, using the format used by the
+ * Schema API.
+ *
+ * The data we will store here is just one 7-character element, even
+ * though the widget presents the three portions separately.
+ *
+ * All implementations of hook_field_schema() must be in the module's
+ * .install file.
+ *
+ * @see http://drupal.org/node/146939
+ * @see schemaapi
+ * @see hook_field_schema()
+ * @ingroup slickgrid_field
+ */
+function slickgrid_field_field_schema($field) {
+  $columns = array(
+    'slickgrid' =>  array(
+          'type' => 'text',
+          'size' => 'big',
+          'not null' => FALSE,  
+     ),
+    'slickgrid_options' => array(
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => FALSE,
+    ),
+		
+  );
+  $indexes = array(
+    'slickgrid_options' => array('slickgrid_options'),
+  );
+  return array(
+    'columns' => $columns,
+    //'indexes' => $indexes,
+  );
+}
+
+function site_content_parser_schema() {
+
+  $schema = array();
+  
+  $schema['slickgrid_fireld_profiles'] = array(
+      'description' => 'Slickgrid profiles',
+      'fields' => array(
+          'pid' => array(
+              'description' => 'The primary identifier for each item',
+              'type' => 'serial',
+              'unsigned' => TRUE,
+              'not null' => TRUE,
+          ),
+          'profile_name' => array(
+              'description' => 'Slickgrid profile name',
+              'type' => 'varchar',
+              'length' => 255,
+          ),
+          'fields' =>  array(
+          'type' => 'text',
+          'size' => 'big',
+          'not null' => FALSE,  
+            ),
+          'status' => array(
+              'description' => 'status of keyword',
+              'type' => 'int',
+              'default' => 0,
+          ),
+      ),
+      'primary key' => array('kid'),
+ 
+          );
+  return $schema;
+}
