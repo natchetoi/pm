@@ -10,12 +10,7 @@
  * @{
  * Example of draggable table rows.
  */
-function tabledrag_node_save($node){
-dsm($node);
-}
-function tabledrag_node_presave($node){
-dsm($node);
-}
+
 /**
  * Implements hook_help().
  *
