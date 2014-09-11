@@ -168,6 +168,86 @@ function rooms_content_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'rooms_unit-standart_doubles-field_description'
+  $field_instances['rooms_unit-standart_doubles-field_description'] = array(
+    'bundle' => 'standart_doubles',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'rooms_unit',
+    'field_name' => 'field_description',
+    'label' => 'Description',
+    'required' => 0,
+    'settings' => array(
+      'display_summary' => 0,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'rooms_unit-standart_doubles-field_image'
+  $field_instances['rooms_unit-standart_doubles-field_image'] = array(
+    'bundle' => 'standart_doubles',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'rooms_unit',
+    'field_name' => 'field_image',
+    'label' => 'Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => 'rooms',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'rooms_unit-standart_doubles-rooms_booking_unit_options'
   $field_instances['rooms_unit-standart_doubles-rooms_booking_unit_options'] = array(
     'bundle' => 'standart_doubles',
@@ -201,6 +281,7 @@ function rooms_content_feature_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('A description of this unit type.');
+  t('Description');
   t('Image');
   t('Options');
   t('Room');
