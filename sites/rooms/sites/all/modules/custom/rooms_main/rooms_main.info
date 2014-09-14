@@ -2,3 +2,7 @@ name = Rooms Main
 description = Rooms main module
 package = Rooms Custom
 core = 7.x
+files[]= rooms_main.module
+files[]= views/rooms_main_handler_book_it.inc
+files[]= views/rooms_main.views.inc
+

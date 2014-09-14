@@ -1,6 +1,0 @@
-name = NBCUMV Manage node history
-description = A simple entity example showing the main steps required to set up your own entity.
-core = 7.x
-package = NBC
-dependencies[] = field
-

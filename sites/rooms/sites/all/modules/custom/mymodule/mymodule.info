@@ -1,0 +1,8 @@
+name = mymodule
+core =7.x
+dependencies[] = ctools
+
+; Views Handlers
+files[] = mymodule_handler.module
+files[] = mymodule_handler.views.inc
+files[] = views/mymodule_handler_handlername.inc

@@ -40,6 +40,7 @@ function rooms_unit_views_data_alter(&$data) {
   );
   // This content of this field are decided based on the menu structure that
   // follows rooms/unit/%unit_id/op
+
   $data['rooms_units']['operations'] = array(
     'field' => array(
       'title' => t('Operations links'),
